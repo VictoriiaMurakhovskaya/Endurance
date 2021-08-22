@@ -68,10 +68,10 @@ def make_results(df):
 
 
 if __name__ == '__main__':
-    wb = op.load_workbook(filename='data_1.xlsx')
+    wb = op.load_workbook(filename='../data_1.xlsx')
     ws_names = wb.sheetnames
 
-    with pd.ExcelWriter('results.xlsx', engine='xlsxwriter') as writer:
+    with pd.ExcelWriter('../results.xlsx', engine='xlsxwriter') as writer:
         for sheet in ws_names:
             df = pd.read_excel("data_1.xlsx", sheet_name=sheet, index_col=0)
             make_results(df).to_excel(excel_writer=writer, sheet_name=sheet)
